@@ -204,21 +204,23 @@
           <div class="big__title pitsa">Pitsa</div>
           <div class="row pitsa"> 
             <div class="col-6 col-md-12 col-xs-12"> 
+              {% for product in products %}
               <div class="item pizza">
                 <div class="box"> 
                   <div class="box__img">  <img class="img" src="{% static 'food/assets/img/pitza1.png' %}" alt=""/>
                     <div class="img__hot"><img class="hot" src="{% static 'food/assets/img/hot.svg' %}" alt=""/></div>
                   </div>
                   <div class="box__content"> 
-                    <div class="box__title">Gavaya<img src="{% static 'food/assets/img/chesse.svg' %}" alt=""/></div>
-                    <div class="box__text">Горячая закуска с митболами из говядины, томатами, моцареллой и соусом чипотле</div>
+                    <div class="box__title">{{ product.title }}<img src="{% static 'food/assets/img/chesse.svg' %}" alt=""/></div>
+                    <div class="box__text">{{ product.description }}</div>
                     <div class="cost__btn">
-                      <div class="box__cost">45,000 UZS</div>
+                      <div class="box__cost">{{ product.price }} UZS</div>
                       <button class="box__btn"> <img src="{% static 'food/assets/img/plus.png' %}" alt=""/></button>
                     </div>
                   </div>
                 </div>
               </div>
+              {% endfor %}
             </div>
             <div class="col-6 col-md-12 col-xs-12"> 
               <div class="item pizza">

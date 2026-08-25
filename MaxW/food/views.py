@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from .models import Category, Product
 
 
 def index(request):
-    # templates/food/index.html ni ko'rsatadi
-    return render(request, 'food/index.html')
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    return render(request, 'food/index.html', {"products": products, "categories": categories})
 
 
 def order(request):
-    # templates/food/order.html ni ko'rsatadi
     return render(request, 'food/order.html')
